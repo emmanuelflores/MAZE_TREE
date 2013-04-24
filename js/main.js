@@ -1,8 +1,8 @@
 // Tree configuration
 var branches = [];
 
-var w = 840;
-var h = 600;
+var w = 1024;
+var h = 800;
 
 var centre = { x: (w/2.0), y: (h/2.0) }
 
@@ -10,49 +10,48 @@ var startAngle;
 var seed;
 var pointOnEdge;
 
-var da = 0.75; // Angle delta
-var dl = 1.; // Length delta (factor)
-var ar = 0.1; // Randomness
-var maxDepth = 6;
+var da = 0.; // Angle delta
+var dl = 0.87; // Length delta (factor)
+var ar = 2.; // Randomness
+var maxDepth = 5;
+var branchLength = 200;
 
-var branchWidth = "3px";
+var branchWidth = "10px";
 
 resetSeed();
 
-console.log("angle =" + startAngle);
-
-function calculateAngle(x1,y1,x2,y2) {
+function calculateAngle(x1,y1,x2,y2) { // calculate angle between two points
 	var deltaX = x2 - x1;
 	var deltaY = y2 - y1;
-	console.log("deltaX + deltaY=" + deltaX + " " + deltaY);
 	return Math.atan2(deltaX,deltaY);
 }
 
-function resetSeed() {
+function resetSeed() { // reset seed
 	pointOnEdge = randomPointOnEdge();
 	startAngle = calculateAngle(pointOnEdge.x,pointOnEdge.y,centre.x,centre.y);
-	seed = {i: 0, x: pointOnEdge.x, y: h - pointOnEdge.y, a: startAngle, l: 60, d:0};
+	seed = {i: 0, x: pointOnEdge.x, y: h - pointOnEdge.y, a: startAngle, l: branchLength, d:0};
 }
 
-function randomPointOnEdge() {
+function randomPointOnEdge() { // only generates points on the  rectangular edge of the canvas
 	var p = Math.random();
+	var edgeOffset = 0; // this decides how far the root is of the edge.
+
 	var x = 0;
 	var y = 0;
 
 	if (p < 0.25) {
-		x = Math.random() * (h-100);
-		y = 100;
+		x = Math.random() * (h-edgeOffset);
+		y = edgeOffset;
 	} else if (p < 0.5) {
-		x = Math.random() * (w-100);
-		y = 100;
+		x = Math.random() * (w-edgeOffset);
+		y = h;
 	} else if (p < 0.75) {
-		x = 100;
-		y = Math.random() * (h-100);
+		x = edgeOffset;
+		y = Math.random() * (h-edgeOffset);
 	} else {
-		x = w-100;
-		y = Math.random() * (h-100);
+		x = w-edgeOffset;
+		y = Math.random() * (h-edgeOffset);
 	}
-	console.log("x and y: "+ x + " " + y)
 	return { x: x , y: y };
 }
 
@@ -72,7 +71,7 @@ function branch(b) {
 		x: end.x,
 		y: end.y,
 		a: b.a - da + daR,
-		l: b.l * dl * ((Math.random() * 0.2) + 0.9) ,
+		l: b.l * dl ,
 		d: b.d + 1,
 		parent: b.i
 	};
@@ -85,7 +84,7 @@ function branch(b) {
 			x: end.x, 
 			y: end.y, 
 			a: b.a + da + daR, 
-			l: b.l * dl * ((Math.random() * 0.2) + 0.9), 
+			l: b.l * dl, 
 			d: b.d + 1,
 			parent: b.i
 		};
@@ -113,7 +112,7 @@ function y1(d) {return d.y;}
 function x2(d) {return endPt(d).x;}
 function y2(d) {return endPt(d).y;}
 function highlightParents(d) {
-	var colour = d3.event.type === 'mouseover' ? 'green' : '#000';
+	var colour = d3.event.type === 'mouseover' ? 'green' : "rgba(0,0,0,0.5)";
 	var depth = d.d;
 	for(var i = 0; i <= depth; i++) {
 		d3.select('#id-'+parseInt(d.i)).style('stroke', colour);
@@ -132,10 +131,21 @@ function create() {
 		.attr('x2', x2)
 		.attr('y2', y2)
 		.style('stroke-width', branchWidth)
-		.style('stroke', 'black')
+		.style('stroke', "rgba(0,0,0,0.5)")
 		.attr('id', function(d) {return 'id-'+d.i;})
 		.on('mouseover', highlightParents)
 		.on('mouseout', highlightParents);
+
+	d3.select('svg')
+		.selectAll('circle')
+		.data(branches)
+		.enter()
+		.append('circle')
+		.attr('cx',x1)
+		.attr('cy',y1)
+		.attr('r',10)
+		.attr('stroke',"rgba(0,0,0,0.5")
+		//.attr('id', function(d) {return 'id-'+d.i;});
 }
 
 function update() {
@@ -147,6 +157,16 @@ function update() {
 		.attr('y1', y1)
 		.attr('x2', x2)
 		.attr('y2', y2);
+
+	d3.select('svg')
+		.selectAll('circle')
+		.data(branches)
+		.transition()
+		.attr('cx',x1)
+		.attr('cy',y1)
+		.attr('r',10)
+		.attr('stroke',"rgba(0,0,0,0.5")
+
 }
 
 d3.selectAll('.regenerate')
