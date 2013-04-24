@@ -10,10 +10,12 @@ var startAngle;
 var seed;
 var pointOnEdge;
 
-var da = 0.5; // Angle delta
+var da = 0.75; // Angle delta
 var dl = 1.; // Length delta (factor)
-var ar = 0.5; // Randomness
+var ar = 0.1; // Randomness
 var maxDepth = 6;
+
+var branchWidth = "3px";
 
 resetSeed();
 
@@ -129,7 +131,7 @@ function create() {
 		.attr('y1', y1)
 		.attr('x2', x2)
 		.attr('y2', y2)
-		.style('stroke-width', "10px")
+		.style('stroke-width', branchWidth)
 		.style('stroke', 'black')
 		.attr('id', function(d) {return 'id-'+d.i;})
 		.on('mouseover', highlightParents)
