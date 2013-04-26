@@ -17,7 +17,7 @@ var maxDepth = 5;
 var branchLength = 200;
 
 var branchWidth = "1.5px";//1
-var branchColor = "pink"
+var branchColor = "#ff8da1"
 
 var outerRadius = Math.min(w, h) / 2 - 10;
 var innerRadius = outerRadius - 24;
@@ -33,6 +33,10 @@ var layout = d3.layout.chord()
 
 var path = d3.svg.chord()
     .radius(innerRadius);
+
+
+var dt = 165;//time interval 
+var t = dt;//timer
 
 
 resetSeed();
@@ -163,10 +167,13 @@ function create() {
 		.attr('cx',x1)
 		.attr('cy',y1)
 		.attr("r", function(d) {
-			var value = Math.random()*50;
+			var value = Math.random()*70;
   			return Math.sqrt(value);
 			})
-		.attr('stroke',"#d3d3d3")
+		.style("fill","black")
+		.style('stroke',"#d3d3d3")
+		.style('stroke-width',2)
+		.style('fill-opacity',0.25)
 		//.attr('id', function(d) {return 'id-'+d.i;});
 }
 
@@ -187,12 +194,35 @@ function update() {
 		.attr('cx',x1)
 		.attr('cy',y1)
 		.attr("r", function(d) {
+			var value = Math.random()*70;
+  			return Math.sqrt(value);
+			})
+		.style("fill","black")
+		.style('stroke',"#d3d3d3")
+		.style('stroke-width',2)
+		.style('fill-opacity',0.25)
+
+}
+
+
+var timer = setInterval(function(){
+   	t += dt;  
+   	//console.log(t);
+   	d3.select('svg')
+		.selectAll('circle')
+		.data(branches)
+		.transition()
+		.attr('cx',x1)
+		.attr('cy',y1)
+		.attr("r", function(d) {
 			var value = Math.random()*50;
   			return Math.sqrt(value);
 			})
-		.attr('stroke',"#d3d3d3")
-
-}
+		.style("fill","black")
+		.style('stroke',"#d3d3d3")
+		.style('stroke-width',2)
+		.style('fill-opacity',0.25)
+}, dt);
 
 d3.selectAll('.regenerate')
 	.on('click', regenerate);
