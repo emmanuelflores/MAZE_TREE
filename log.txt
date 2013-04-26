@@ -1,0 +1,4 @@
+log
+
+26-april-2013
+incorporate an <info> button. R: bdbd-jumper
