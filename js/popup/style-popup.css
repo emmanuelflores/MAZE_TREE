@@ -1,0 +1,72 @@
+.popup-link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: black;
+}
+
+.obscuring-layer {
+    background-color: white;
+    opacity: 0.7;
+    position: fixed;
+    top: -9999px;
+    left: -9999px;
+    min-width: 9999px;
+    min-height: 9999px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.obscuring-layer.visible {
+    opacity: 0.5;
+    -webkit-transition: opacity 1.5s ease-in;
+    -mox-transition: opacity 1.5s ease-in;
+    -o-transition: opacity 1.5s ease-in;
+    
+    /*
+    min-width: 9999px;
+    min-height: 9999px;
+    */
+    top: 0px;
+    left: 0px;
+}
+
+.obscuring-layer.hidden {
+    opacity: 0;
+    -webkit-transition: opacity 0.25s ease-in;
+    -mox-transition: opacity 0.25s ease-in;
+    -o-transition: opacity 0.25s ease-in;
+}
+
+.popup {
+    background-color: gray;
+    min-width: 960px;
+    max-width: 960px;
+    width: 960px;
+    opacity: 0.5;
+    border-radius: 30px;
+    border: 3px solid black;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    margin: 0px;
+    margin-top: 20px;
+    margin-left: -500px;
+    padding: 20px;
+}
+
+.popup.visible {
+    opacity: 1;
+    -webkit-transition: opacity 0.25s ease-in;
+    -moz-transition: opacity 0.25s ease-in;
+    -o-transition: opacity 0.25s ease-in;
+    top: 20px;
+    left: 50%;
+}
+
+.popup.hidden {
+    /* FIX ME: doesn't work, because the popup moves to its faraway position before the transition. */
+    opacity: 0;
+    -webkit-transition: opacity 0.25s ease-in;
+    -moz-transition: opacity 0.25s ease-in;
+    -o-transition: opacity 0.25s ease-in;
+}
