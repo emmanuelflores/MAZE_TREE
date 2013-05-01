@@ -1,9 +1,15 @@
 (function($) {
   $.fn.radar = function(method) {
-
+    var currentMousePos = { x: -1, y: -1 };
     var FRAMES_PER_CYCLE=20; // number of frames per radar cycle
     var FRAMERATE=20; // frames per second
     var RINGS = 3;  // number of radar rings rendered
+
+
+    $(document).mousemove(function(event) {
+        currentMousePos.x = event.pageX;
+        currentMousePos.y = event.pageY;
+    });
 
     return this.each(function() {
 
@@ -33,13 +39,15 @@
           alpha = (radiusmax-radius)/radiusmax;
           ctx.beginPath();
           ctx.fillStyle = "rgba(0,0,0,"+alpha+")";
-          ctx.arc($this.width()/2,$this.height()/2,radius*scale,0,2*Math.PI,false);
+          //ctx.arc($this.width()/2,$this.height()/2,radius*scale,0,2*Math.PI,false);
+          ctx.arc(currentMousePos.x,currentMousePos.y,radius*scale,0,2*Math.PI,false);
           ctx.fill();
         }
         
         ctx.beginPath();
         ctx.fillStyle = "rgba(120,220,220,40)";
-        ctx.arc($this.width()/2,$this.height()/2,ringsize/2,0,2*Math.PI,false);
+        //ctx.arc($this.width()/2,$this.height()/2,ringsize/2,0,2*Math.PI,false);
+        ctx.arc(currentMousePos.x,currentMousePos.y,ringsize/2,0,2*Math.PI,false);
         ctx.fill();
         
         if (animationframe>=(FRAMES_PER_CYCLE-1))
