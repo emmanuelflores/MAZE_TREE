@@ -7,9 +7,10 @@
 
 
     $(document).mousemove(function(event) {
-        currentMousePos.x = event.pageX;
-        currentMousePos.y = event.pageY;
+      currentMousePos.x = event.pageX;
+      currentMousePos.y = event.pageY;
     });
+
 
     return this.each(function() {
 
@@ -32,6 +33,8 @@
         var radius;
         var alpha;
         var scale = 0.3;
+        var offsetX = 8;
+        var offsetY = 8;
         
         for (var ringno=0;ringno<RINGS;ringno++)
         {
@@ -40,14 +43,14 @@
           ctx.beginPath();
           ctx.fillStyle = "rgba(0,0,0,"+alpha+")";
           //ctx.arc($this.width()/2,$this.height()/2,radius*scale,0,2*Math.PI,false);
-          ctx.arc(currentMousePos.x,currentMousePos.y,radius*scale,0,2*Math.PI,false);
+          ctx.arc(currentMousePos.x-offsetX,currentMousePos.y-offsetY,radius*scale,0,2*Math.PI,false);
           ctx.fill();
         }
         
         ctx.beginPath();
         ctx.fillStyle = "rgba(120,220,220,40)";
         //ctx.arc($this.width()/2,$this.height()/2,ringsize/2,0,2*Math.PI,false);
-        ctx.arc(currentMousePos.x,currentMousePos.y,ringsize/2,0,2*Math.PI,false);
+        ctx.arc(currentMousePos.x-offsetX,currentMousePos.y-offsetY,ringsize/2,0,2*Math.PI,false);
         ctx.fill();
         
         if (animationframe>=(FRAMES_PER_CYCLE-1))
