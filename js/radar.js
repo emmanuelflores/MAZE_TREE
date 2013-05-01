@@ -13,15 +13,35 @@
 
 
     return this.each(function() {
-
+      var centerReciprocal;
       var $this = $(this);
       
       if (!$this.get(0).getContext) return; // no canvas support
       var ctx = $this.get(0).getContext("2d");
       
+      //calibrate sizes
       var canvassize = ($this.width()<$this.height())?$this.width():$this.height();
+
+      if($this.width()>=1200){
+        centerReciprocal = 8;
+      }
+      else if($this.width()>= 800 || $this.width()<1200){
+        centerReciprocal = 6;
+      }
+      else if($this.width()>= 600 || $this.width()<800){
+        centerReciprocal = 4;
+      }
+      else if($this.width()>= 200 || $this.width()<600){
+        centerReciprocal = 2;
+      }
+      else {
+        centerReciprocal = 1;
+      }
       
-      var ringsize = canvassize/(2*RINGS+1);
+
+      console.log(centerReciprocal);
+
+      var ringsize = canvassize/(2*RINGS+1)/centerReciprocal;
       var radiusmax = ringsize/2 + ringsize + (RINGS-1)*ringsize;
       
       var animationframe=0;
