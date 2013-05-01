@@ -39,9 +39,9 @@ var dt = 165;//time interval
 var t = dt;//timer
 
 //popup window
-window.onload = function() {
-                register_popup("show", "hide", "popup", "obscuring-layer");
-            }
+// window.onload = function() {
+//                 register_popup("show", "hide", "popup", "obscuring-layer");
+//             }
 
 resetSeed();
 
