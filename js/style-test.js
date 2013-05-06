@@ -183,33 +183,33 @@ function create() {
 		//.attr('id', function(d) {return 'id-'+d.i;});
 }
 
-function update() {
-	d3.select('svg')
-		.selectAll('line')
-		.data(branches)
-		.transition()
-		.attr('x1', x1)
-		.attr('y1', y1)
-		.attr('x2', x2)
-		.attr('y2', y2);
+// function update() {
+// 	d3.select('svg')
+// 		.selectAll('line')
+// 		.data(branches)
+// 		.transition()
+// 		.attr('x1', x1)
+// 		.attr('y1', y1)
+// 		.attr('x2', x2)
+// 		.attr('y2', y2);
 
-	d3.select('svg')
-		.selectAll('circle')
-		.data(branches)
-		.transition()
-		.attr('cx',x1)
-		.attr('cy',y1)
-		.attr("r", function(d) {
-			var value = Math.random()*70;
-  			return Math.sqrt(value);
-			})
-		.style("fill","black")
-		.style('stroke',"#d3d3d3")
-		.style('stroke-width',2)
-		.style('fill-opacity',0.25)
+// 	d3.select('svg')
+// 		.selectAll('circle')
+// 		.data(branches)
+// 		.transition()
+// 		.attr('cx',x1)
+// 		.attr('cy',y1)
+// 		.attr("r", function(d) {
+// 			var value = Math.random()*70;
+//   			return Math.sqrt(value);
+// 			})
+// 		.style("fill","black")
+// 		.style('stroke',"#d3d3d3")
+// 		.style('stroke-width',2)
+// 		.style('fill-opacity',0.25)
 
 
-}
+// }
 
 
 var timer = setInterval(function(){

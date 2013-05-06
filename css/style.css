@@ -7,5 +7,10 @@ body {
 	font-size: 14px;
 }
 
+circle {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
 .twitter-share-button[style], .twitter-follow-button[style] { vertical-align: text-bottom !important; }
 .twitter-share-button {width: 76px !important;}

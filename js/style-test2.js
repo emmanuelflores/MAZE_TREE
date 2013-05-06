@@ -23,16 +23,22 @@ var ringsize = canvassize/(2*RINGS+1)/centerReciprocal;
 var radiusmax = ringsize/2 + ringsize + (RINGS-1)*ringsize;
 var animationframe=0;
 
-if(canvas.width>=1200){
+//circles
+var z = d3.scale.category20c();
+var i = 0;
+var w = canvas.width;
+var h = canvas.height;
+
+if(w>=1200){
 	centerReciprocal = 8;
 }
-else if(canvas.width>= 800 || canvas.width<1200){
+else if(w>= 800 || canvas.width<1200){
 	centerReciprocal = 6;
 }
-else if(canvas.width>= 600 || canvas.width<800){
+else if(w>= 600 || canvas.width<800){
 	centerReciprocal = 4;
 }
-else if(canvas.width>= 200 || canvas.width<600){
+else if(w>= 200 || canvas.width<600){
 	centerReciprocal = 2;
 }
 else {
@@ -267,11 +273,37 @@ function highlightParentsSmallStroke(d) {
 	d3.select(this).style('stroke-width',1);
 }
 
+function moveEllipseOnCanvasX(d){
+	d3.select(this).attr("cx",currentMousePos.x);
+}
+
+function moveEllipseOnCanvasX(d){
+	d3.select(this).attr("cy",currentMousePos.y);
+}
+
+//radial motion
+function particle() {
+  var m = d3.svg.mouse(this);
+
+  svg.append("svg:ellipse")
+      .attr("cx", m[0])
+      .attr("cy", m[1])
+      .attr("r", 1e-6)
+      .style("stroke", z(++i))
+      .style("stroke-opacity", 1)
+    .transition()
+      .duration(2000)
+      .ease(Math.sqrt)
+      .attr("r", 100)
+      .style("stroke-opacity", 1e-6)
+      .remove();
+}
+
 //INIT
 function create() {
-	// //testing the canvas
-	// d3.select('svg').append('ellipse').attr("cx", 50)
-	// .attr("cy", 50).attr("rx", 25).attr("ry", 10);
+	//testing the canvas
+	// d3.select('svg').append('ellipse').attr("cx",100)
+	// .attr("cy", 100).attr("rx", 10).attr("ry", 10);
 
 
 	d3.select('svg')
@@ -307,6 +339,16 @@ function create() {
 	.style('stroke-width',2)
 	.style('fill-opacity',0.25)
 		//.attr('id', function(d) {return 'id-'+d.i;});
+
+
+	//radial
+	// var svg = d3.select("svg").append("svg:svg")
+	d3.select('svg').selectAll('ellipse')
+	//.enter()
+    .attr("width", w)
+    .attr("height", h)
+    .style("pointer-events", "all")
+    .on("mousemove", particle);
 	}
 
 	//UPDATE
