@@ -43,7 +43,6 @@ var t = dt;//timer
 //                 register_popup("show", "hide", "popup", "obscuring-layer");
 //             }
 
-
 resetSeed();
 
 function calculateAngle(x1,y1,x2,y2) { // calculate angle between two points
@@ -206,7 +205,6 @@ function update() {
 		.style('stroke',"#d3d3d3")
 		.style('stroke-width',2)
 		.style('fill-opacity',0.25)
-
 
 }
 
