@@ -8,77 +8,80 @@
   <link rel="stylesheet" href="css/svg.css">
   <link rel="stylesheet" type="text/css" href="css/ui_styles.css" />
   <link rel="stylesheet" type="text/css" href="css/info.css" />
+  <link rel="stylesheet" href="css/button.css" /> 
   <!--background -->
   <link type="text/css" rel="stylesheet" media="all" href="css/fancymenu.css" />
-		<!--popup window
-		<script type="text/javascript" src="js/popup/popup.js"></script>
 
-		<link rel="stylesheet" href="js/popup/style-popup.css" />
-	-->
 
-    <!--JavaScript resorces-->
-    <script src="js/libs/d3.v3.min.js"></script>
-    <script src="js/libs/jquery-1.9.1.min.js"></script>
-    <script src="js/common.js"></script>
+  <!--js libraries-->
+  <script src="js/libs/d3.v3.min.js"></script>
+  <script src="js/libs/jquery-1.9.1.min.js"></script>
+  <script src="js/common.js"></script>
 
-        <style type="text/css">
-/*nice*/
+  <style type="text/css">
+  /*nice*/
 /*body {
   background: #222;
-}*/
+  }*/
 
 /*body{
   background : #FFF;
-}*/
+  }*/
 
-ellipse {
-  fill: none;
-  stroke-width: 1.5px;
-}
+  ellipse {
+    fill: none;
+    stroke-width: 1.5px;
+  }
 
-    </style>
+  </style>
 
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-37639745-1']);
-    _gaq.push(['_setDomainName', 'prcweb.co.uk']);
-    _gaq.push(['_trackPageview']);
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37639745-1']);
+  _gaq.push(['_setDomainName', 'prcweb.co.uk']);
+  _gaq.push(['_trackPageview']);
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
   </script>
 </head>
 
-<body>
+<body class="button">
+  <div class="wrapper">
+    <a href="#inforButton" class="openModal">play</a>
+
+    <aside id="inforButton" class="modal">
+      <div>
+        <p>Maze tree</p>
+        <p>Developed by Monotone</p>
+        <p>listen to the tree</p>
+
+        <a href="#close" title="Close">Close</a>
+      </div>
+    </aside>
+  </div>
+
   <button class="regenerate">Seed</button>
-<!-- 		<button id="show">Info</button>
-		<div id="obscuring-layer"></div>
-		<div id="popup"><p> Display here the information</p><p>(<a id="hide">x</a>)</p></div> -->
+  <div id="container"></div>
+  <!--second option as button-->
+<!--     <div id="info" style="height:260px">
+      <h3>The Maze</h3>
+      <p>Development by Monotone Studio</p>
 
-		
-		<!--show info-->
-
-		<div id="container"></div>
-        <div id="info" style="height:260px">
-            <h3>The Maze</h3>
-            <p>Development by Monotone Studio</p>
-            
-        </div>
-        <div id="infoBt">
-            <a href="#" onclick="showInfo()"><img src="images/info.png" /></a>
-        </div>
+    </div>
+    <div id="infoBt">
+      <a href="#" onclick="showInfo()"><img src="images/info.png" /></a>
+    </div> -->
 
 
-        <div id="chart">
-         <svg>
-         </svg>
-     </div>
-      <canvas id="myCanvas" width = "1024" height = "800"></canvas>
-     <script src="js/style-test2.js"></script>
-
-
+    <div id="chart">
+     <svg>
+     </svg>
+   </div>
+   <canvas id="myCanvas" width = "1024" height = "800"></canvas>
+   <script src="js/style-test2.js"></script>
  </body>
  </html>
