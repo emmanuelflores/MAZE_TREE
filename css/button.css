@@ -42,7 +42,7 @@
     padding: 30px;
     border-radius: 7px;
     box-shadow: 0 3px 20px rgba(0,0,0,0.9);
-    background: #fff;
+    background: #000;
     background: -moz-linear-gradient(#fff, #ccc);
     background: -webkit-linear-gradient(#fff, #ccc);
     background: -o-linear-gradient(#fff, #ccc);
@@ -160,7 +160,7 @@
 }
 
 .modal a[href="#close"]:focus:after {
-    outline: 1px solid #000;
+    outline: 1px solid #fff;
 }
 
 /* Open modal position of the button*/
@@ -173,18 +173,18 @@ a.openModal {
     text-align: center;
     padding: 10px;
     border-radius: 7px;
-    background: #fff;
-    background: -moz-linear-gradient(#ccc, #ddd);
-    background: -webkit-linear-gradient(#ccc, #ddd);
-    background: -o-linear-gradient(#ccc, #ddd);
+    background: #ddd;
+    background: -moz-linear-gradient(#000, #00000f);
+    background: -webkit-linear-gradient(#000, #00000f);
+    background: -o-linear-gradient(#000, #00000f);
     text-shadow: 0 0px 0 #fff;
     border: 1px solid rgba(0,0,0,0.6);
     box-shadow: 0 0px 0px rgba(0,0,0,0.);
 }
 
-a.openModal:hover,
+a.openModal:hover,/*mouse over the button changes color*/
 a.openModal:focus {
-    background: -moz-linear-gradient(#fff, #ccc);
-    background: -webkit-linear-gradient(#ddd, #ccc);
-    background: -o-linear-gradient(#ddd, #ccc);
+    background: -moz-linear-gradient(#000, #00000f);
+    background: -webkit-linear-gradient(#000, #00000f);
+    background: -o-linear-gradient(#000, #00000f);
 }
