@@ -24,10 +24,10 @@ var radiusmax = ringsize/2 + ringsize + (RINGS-1)*ringsize;
 var animationframe=0;
 
 //circles
-var z = d3.scale.category20c();
-var i = 0;
 var w = canvas.width;
 var h = canvas.height;
+var z = d3.scale.category20c();
+var i = 0;
 
 if(w>=1200){
 	centerReciprocal = 8;
@@ -108,10 +108,10 @@ function animateRadarFrame()
     	.startAngle(45 * (pi/180)) //converting from degs to radians
     	.endAngle(3) //just radians
 
-    vis.append("path")
-    .attr("d", arc)
-    .attr("transform", "translate(200,200)")
-}
+    	vis.append("path")
+    	.attr("d", arc)
+    	.attr("transform", "translate(200,200)")
+    }
 
 
 
@@ -149,7 +149,7 @@ var path = d3.svg.chord()
 .radius(innerRadius);
 
 
-var dt = 165;//time interval 
+var dt = 200;//time interval //165
 var t = dt;//timer
 
 //popup window
@@ -273,31 +273,7 @@ function highlightParentsSmallStroke(d) {
 	d3.select(this).style('stroke-width',1);
 }
 
-function moveEllipseOnCanvasX(d){
-	d3.select(this).attr("cx",currentMousePos.x);
-}
 
-function moveEllipseOnCanvasX(d){
-	d3.select(this).attr("cy",currentMousePos.y);
-}
-
-//radial motion
-function particle() {
-  var m = d3.svg.mouse(this);
-
-  svg.append("svg:ellipse")
-      .attr("cx", m[0])
-      .attr("cy", m[1])
-      .attr("r", 1e-6)
-      .style("stroke", z(++i))
-      .style("stroke-opacity", 1)
-    .transition()
-      .duration(2000)
-      .ease(Math.sqrt)
-      .attr("r", 100)
-      .style("stroke-opacity", 1e-6)
-      .remove();
-}
 
 //INIT
 function create() {
@@ -342,14 +318,14 @@ function create() {
 
 
 	//radial
-	// var svg = d3.select("svg").append("svg:svg")
-	d3.select('svg').selectAll('ellipse')
-	//.enter()
+	var svg = d3.select("body").append("svg:svg")
     .attr("width", w)
     .attr("height", h)
     .style("pointer-events", "all")
     .on("mousemove", particle);
-	}
+
+}
+
 
 	//UPDATE
 	function update() {
@@ -375,7 +351,14 @@ function create() {
 		.style("fill","black")
 		.style('stroke',"#d3d3d3")
 		.style('stroke-width',2)
-		.style('fill-opacity',0.25)
+		.style('fill-opacity',0.25);
+
+
+		var svg = d3.select("body").append("svg:svg")
+    .attr("width", w)
+    .attr("height", h)
+    .style("pointer-events", "all")
+    .on("mousemove", particle);
 
 
 	}
@@ -384,6 +367,12 @@ function create() {
 var timer = setInterval(function(){
 	//radar position 
 	//animateRadarFrameD3();
+
+	// var svg = d3.select("body").append("svg:svg")
+ //    .attr("width", w)
+ //    .attr("height", h)
+ //    .style("pointer-events", "all")
+ //    .on("mousemove", particle);
 
 	t += dt;  
 		//console.log(t);
@@ -402,7 +391,34 @@ var timer = setInterval(function(){
 		.style('stroke',"#d3d3d3")
 		.style('stroke-width',2)
 		.style('fill-opacity',0.25)
+		.transition()
+      .duration(2000)
+      .ease(Math.sqrt)
+      .attr("cx", 100)
+      .attr("cy", 100)
+      .style("stroke-opacity", 1e-6)
+      .remove();
+
 	}, dt);
+
+function particle() {
+  var m = d3.svg.mouse(this);
+
+  svg.append("svg:ellipse")
+      .attr("cx", m[0])
+      .attr("cy", m[1])
+      .attr("rx", 1e-6)
+      .attr("ry", 1e-6)
+      .style("stroke", z(++i))
+      .style("stroke-opacity", 1)
+    .transition()
+      .duration(20000)
+      .ease(Math.sqrt)
+      .attr("rx", 100)
+      .attr("ry", 100)
+      .style("stroke-opacity", 1e-6)
+      .remove();
+}
 
 d3.selectAll('.regenerate')
 .on('click', regenerate);
