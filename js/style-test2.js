@@ -401,8 +401,8 @@ function create() {
 		// 	var value = Math.random()*rMult;
 		// 	return Math.sqrt(value);
 		// })})
- 		.on("mouseover",highlightCircles)
- 		.on("mouseout", unhighlightCircles);
+ 		// .on("mouseover",highlightCircles)
+ 		// .on("mouseout", unhighlightCircles);
 
 
  var svg = d3.select("body").append("svg:svg")
