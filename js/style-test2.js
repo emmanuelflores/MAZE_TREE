@@ -153,7 +153,7 @@ var dt = 250;//time interval: 165 200
 var t = dt;//timer
 
 //circles radius mult
-var rMult = 400;//70,100,400,50
+var rMult = 50;//70,100,400,50
 
 //popup window
 // window.onload = function() {
@@ -254,6 +254,8 @@ function x1(d) {return d.x;}
 function y1(d) {return d.y;}
 function x2(d) {return endPt(d).x;}
 function y2(d) {return endPt(d).y;}
+
+/////////highlight branches
 function highlightParents(d) {
 	var colour = d3.event.type === 'mouseover' ? 'green' : branchColor;
 	var depth = d.d;
@@ -276,14 +278,31 @@ function highlightParentsSmallStroke(d) {
 	d3.select(this).style('stroke-width',branchWidth);
 }
 
+/////////highlight circles
 function highlightCircles(d) {
 	d3.select(this).style('stroke-width',function(d) {
 		var value = Math.random()*1000;
 		return Math.sqrt(value);
-	}).style("fill","cyan");
+	})
+	.style("fill","cyan")
+	.style('stroke',"#1690b5")
+	.style('stroke-width',5)
+	.style('fill-opacity',0.7)/*0.5 0.75 1.0*/
 
 	rMult = 400;
-	console.log("make it bigger");
+}
+
+function unhighlightCircles(d){
+	d3.select(this).style('stroke-width',function(d) {
+		var value = Math.random()*10;
+		return Math.sqrt(value);
+	})
+	.style("fill","black")
+	.style('stroke',"#d3d3d3")
+	.style('stroke-width',2)
+	.style('fill-opacity',0.25)
+
+	rMult = 100;
 }
 
 
@@ -330,7 +349,8 @@ function create() {
 	// .on("mouseover", function(){d3.select(this).attr("r",100).
 	// 		style("fill", "cyan")});
  //.on("mouseover",function(){rMult = 100})
- .on("mouseover",highlightCircles);
+ 	.on("mouseover",highlightCircles)
+ 	.on("mouseout", unhighlightCircles);
 	// .on("mouseout", function(){d3.select(this).attr("r",function(d) {
 	// 	var value = Math.random()*rMult;
 	// 	return Math.sqrt(value);
@@ -373,7 +393,6 @@ function create() {
 		.style('stroke',"#d3d3d3")
 		.style('stroke-width',2)
 		.style('fill-opacity',0.25)
-		.on("mouseover",function(){console.log("hello")})
 		//.on("mouseover", function(){d3.select(this).style("fill", "blue");});
 		// .on("mouseover", function(){d3.select(this).attr("r",100).
 		// 	style("fill", "cyan")});
@@ -382,7 +401,8 @@ function create() {
 		// 	var value = Math.random()*rMult;
 		// 	return Math.sqrt(value);
 		// })})
- 		.on("mouseover",highlightCircles);
+ 		.on("mouseover",highlightCircles)
+ 		.on("mouseout", unhighlightCircles);
 
 
  var svg = d3.select("body").append("svg:svg")
