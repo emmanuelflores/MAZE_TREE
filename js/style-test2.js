@@ -5,7 +5,6 @@
  	var ctx = canvas.getContext( '2d' );
 
 //mousemove function
-
 $(document).mousemove(function(event) {
 	currentMousePos.x = event.pageX;
 	currentMousePos.y = event.pageY;
@@ -125,14 +124,14 @@ var startAngle;
 var seed;
 var pointOnEdge;
 
-var da = 0.; // Angle delta
+var da = 0.; // Angle delta: 0.
 var dl = 0.87; // Length delta (factor)
-var ar = 2.; // Randomness
+var ar = 2.; // Randomness: 2.
 var maxDepth = 4;
 var branchLength = 170;//200
 
-var branchWidth = "1.5px";//1
-var branchColor = "#ff8da1"
+var branchWidth = 1.5//"1.5px";//1 or 2 is super nice
+var branchColor = "#ff8da1"//#ff8da1 ff8daf 
 
 var outerRadius = Math.min(w, h) / 2 - 10;
 var innerRadius = outerRadius - 24;
@@ -150,7 +149,7 @@ var path = d3.svg.chord()
 .radius(innerRadius);
 
 
-var dt = 220;//time interval //165 //200
+var dt = 250;//time interval: 165 200
 var t = dt;//timer
 
 //popup window
@@ -271,7 +270,7 @@ function highlightParentsSmallStroke(d) {
 		d = branches[d.parent];
 	}
 
-	d3.select(this).style('stroke-width',1);
+	d3.select(this).style('stroke-width',branchWidth);
 }
 
 
@@ -392,13 +391,6 @@ var timer = setInterval(function(){
 		.style('stroke',"#d3d3d3")
 		.style('stroke-width',2)
 		.style('fill-opacity',0.25);
-		// .transition()
-  //     .duration(2000)
-  //     .ease(Math.sqrt)
-  //     .attr("cx", 100)
-  //     .attr("cy", 100)
-  //     .style("stroke-opacity", 1e-6)
-  //     .remove();
 
 }, dt);
 
