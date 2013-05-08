@@ -14,7 +14,7 @@ var da = 0.; // Angle delta
 var dl = 0.87; // Length delta (factor)
 var ar = 2.; // Randomness
 var maxDepth = 5;
-var branchLength = 200;
+var branchLength = 50;//200
 
 var branchWidth = "1.5px";//1
 var branchColor = "#ff8da1"
