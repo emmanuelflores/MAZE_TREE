@@ -1,3 +1,43 @@
+/*Fonts*/
+@font-face {font-family: 'OpenSansBold'; 
+    src: url(../resources/open-sans/OpenSans-Bold.ttf);}
+@font-face {font-family: 'OpenSansBoldItalic'; 
+    src: url(../resources/open-sans/OpenSans-BoldItalic.ttf);}
+@font-face {font-family: 'OpenSansExtraBold'; 
+    src: url(../resources/open-sans/OpenSans-ExtraBold.ttf);}
+@font-face {font-family: 'OpenSansExtraBoldItalic'; 
+    src: url(../resources/open-sans/OpenSans-ExtraBoldItalic.ttf);}
+@font-face {font-family: 'OpenSansItalic'; 
+    src: url(../resources/open-sans/OpenSans-Italic.ttf);}
+@font-face {font-family: 'OpenSansLight'; 
+    src: url(../resources/open-sans/OpenSans-Light.ttf);}
+@font-face {font-family: 'OpenSansLightItalic';
+    src: url(../resources/open-sans/OpenSans-LightItalic.ttf);}
+@font-face {font-family: 'OpenSansRegular'; 
+    src: url(../resources/open-sans/OpenSans-Regular.ttf);}
+@font-face {font-family: 'OpenSansSemibold'; 
+    src: url(../resources/open-sans/OpenSans-Semibold.ttf);}
+@font-face {font-family: 'OpenSansSemiboldItalic'; 
+    src: url(../resources/open-sans/OpenSans-SemiboldItalic.ttf);}
+
+
+p.customFontBold{font-family: "OpenSansBold"}
+p.customFontBoldItalic{font-family: "OpenSansBoldItalic"}
+p.customFontExtraBold{font-family: "OpenSansExtraBold"}
+p.customFontExtraBoldItalic{font-family: "OpenSansExtraBoldItalic"}
+p.customFontExtraBoldItalic{font-family: "OpenSansExtraBoldItalic"}
+p.customFontItalic{font-family: "OpenSansItalic"}
+p.customFontLight{font-family: "OpenSansLight"}
+p.customFontLightItalic{font-family: "OpenSansLightItalic"}
+p.customFontRegular{font-family: "OpenSansRegular"}
+p.customFontSemibold{font-family: "OpenSansSemibold"}
+p.customFontSemiboldItalic{font-family: "OpenSansSemiboldItalic"}
+/*
+h1 {
+  font-family: 'RieslingRegular', Arial, sans-serif;
+}
+*/
+
 /* Container */
 .modal {
 
