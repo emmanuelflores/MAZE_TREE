@@ -149,11 +149,11 @@ var path = d3.svg.chord()
 .radius(innerRadius);
 
 
-var dt = 350;//time interval: 165 200 250
+var dt = 550;//time interval: 165 200 250
 var t = dt;//timer
 
 //circles radius mult
-var rMult = 70;//70,100,400,50
+var rMult = 500;//70,100,400,50
 
 //popup window
 // window.onload = function() {
@@ -294,7 +294,7 @@ function highlightCircles(d) {
 
 function unhighlightCircles(d){
 	d3.select(this).style('stroke-width',function(d) {
-		var value = Math.random()*10;
+		var value = Math.random()*rMult;
 		return Math.sqrt(value);
 	})
 	.style("fill","black")
@@ -302,7 +302,7 @@ function unhighlightCircles(d){
 	.style('stroke-width',2)
 	.style('fill-opacity',0.25)
 
-	rMult = 100;
+	//rMult = 100;
 }
 
 
