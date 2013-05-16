@@ -131,7 +131,7 @@ var maxDepth = 4;
 var branchLength = 170;//200
 
 var branchWidth = 1.5//"1.5px";//1 or 2 is super nice
-var branchColor = "#ff8da1"//#ff8da1 ff8daf ff8d90 
+var branchColor = "#000"//#ff8da1 ff8daf ff8d90 
 
 var outerRadius = Math.min(w, h) / 2 - 10;
 var innerRadius = outerRadius - 24;
@@ -149,7 +149,7 @@ var path = d3.svg.chord()
 .radius(innerRadius);
 
 
-var dt = 250;//time interval: 165 200
+var dt = 350;//time interval: 165 200 250
 var t = dt;//timer
 
 //circles radius mult
@@ -308,13 +308,7 @@ function unhighlightCircles(d){
 
 
 //INIT
-//changed the position of the spheres x1 = x2 y1 = y2
 function create() {
-	//testing the canvas
-	// d3.select('svg').append('ellipse').attr("cx",100)
-	// .attr("cy", 100).attr("rx", 10).attr("ry", 10);
-
-
 	d3.select('svg')
 	.selectAll('line')
 	.data(branches)
@@ -347,16 +341,8 @@ function create() {
 	.style('stroke',"#d3d3d3")
 	.style('stroke-width',2)
 	.style('fill-opacity',0.25)
-	// .on("mouseover", function(){d3.select(this).attr("r",100).
-	// 		style("fill", "cyan")});
- //.on("mouseover",function(){rMult = 100})
- 	.on("mouseover",highlightCircles)
- 	.on("mouseout", unhighlightCircles);
-	// .on("mouseout", function(){d3.select(this).attr("r",function(d) {
-	// 	var value = Math.random()*rMult;
-	// 	return Math.sqrt(value);
-	// })})
-		//.attr('id', function(d) {return 'id-'+d.i;});
+	.on("mouseover",highlightCircles)
+	.on("mouseout", unhighlightCircles);
 
 
 	//radial
@@ -394,86 +380,57 @@ function create() {
 		.style('stroke',"#d3d3d3")
 		.style('stroke-width',2)
 		.style('fill-opacity',0.25)
-		//.on("mouseover", function(){d3.select(this).style("fill", "blue");});
-		// .on("mouseover", function(){d3.select(this).attr("r",100).
-		// 	style("fill", "cyan")});
- 		// .on("mouseover",function(){rMult = 1000})
-		// .on("mouseout", function(){d3.select(this).attr("r",function(d) {
-		// 	var value = Math.random()*rMult;
-		// 	return Math.sqrt(value);
-		// })})
- 		// .on("mouseover",highlightCircles)
- 		// .on("mouseout", unhighlightCircles);
+
+		var svg = d3.select("body").append("svg:svg")
+		.attr("width", w)
+		.attr("height", h)
+		.style("pointer-events", "all")
+		.on("mousemove", particle);
 
 
- var svg = d3.select("body").append("svg:svg")
- .attr("width", w)
- .attr("height", h)
- .style("pointer-events", "all")
- .on("mousemove", particle);
+	}
 
+	var timer = setInterval(function(){
+		t += dt;  
+		d3.select('svg')
+		.selectAll('circle')
+		.data(branches)
+		.transition()
+		.duration(dt)
+		.attr('cx',x2)
+		.attr('cy',y2)
+		.attr("r", function(d) {
+			var value = Math.random()*rMult;
+			return Math.sqrt(value);
+		})
+		.style("fill","black")
+		.style('stroke',"#d3d3d3")
+		.style('stroke-width',2)
+		.style('fill-opacity',0.25);
 
-}
+	}, dt);
 
-//var radarAnimationID = setInterval(animateRadarFrame,1000/FRAMERATE);
-var timer = setInterval(function(){
-	//radar position 
-	//animateRadarFrameD3();
+	function particle() {
+		var m = d3.svg.mouse(this);
 
-	// var svg = d3.select("body").append("svg:svg")
- //    .attr("width", w)
- //    .attr("height", h)
- //    .style("pointer-events", "all")
- //    .on("mousemove", particle);
+		svg.append("svg:ellipse")
+		.attr("cx", m[0])
+		.attr("cy", m[1])
+		.attr("rx", 1e-6)
+		.attr("ry", 1e-6)
+		.style("stroke", z(++i))
+		.style("stroke-opacity", 1)
+		.transition()
+		.duration(20000)
+		.ease(Math.sqrt)
+		.attr("rx", 100)
+		.attr("ry", 100)
+		.style("stroke-opacity", 1e-6)
+		.remove();
+	}
 
- t += dt;  
- //console.log(t);
- //console.log(currentMousePos.x+" "+currentMousePos.y);
- d3.select('svg')
- .selectAll('circle')
- .data(branches)
- .transition()
- //added time on the transition
- .duration(dt)
- .attr('cx',x2)
- .attr('cy',y2)
- .attr("r", function(d) {
- 	var value = Math.random()*rMult;
- 	return Math.sqrt(value);
- })
- .style("fill","black")
- .style('stroke',"#d3d3d3")
- .style('stroke-width',2)
- .style('fill-opacity',0.25)
-	// 	.on("mouseover", function(){d3.select(this).attr("r",100)})
-	// .on("mouseout", function(){d3.select(this).attr("r",function(d) {
-	// 	var value = Math.random()*rMult;
-	// 	return Math.sqrt(value);
-	// })})
+	d3.selectAll('.regenerate')
+	.on('click', regenerate);
 
-}, dt);
-
-function particle() {
-	var m = d3.svg.mouse(this);
-
-	svg.append("svg:ellipse")
-	.attr("cx", m[0])
-	.attr("cy", m[1])
-	.attr("rx", 1e-6)
-	.attr("ry", 1e-6)
-	.style("stroke", z(++i))
-	.style("stroke-opacity", 1)
-	.transition()
-	.duration(20000)
-	.ease(Math.sqrt)
-	.attr("rx", 100)
-	.attr("ry", 100)
-	.style("stroke-opacity", 1e-6)
-	.remove();
-}
-
-d3.selectAll('.regenerate')
-.on('click', regenerate);
-
-regenerate(true);
+	regenerate(true);
 });
