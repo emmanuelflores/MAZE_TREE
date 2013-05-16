@@ -149,11 +149,11 @@ var path = d3.svg.chord()
 .radius(innerRadius);
 
 
-var dt = 550;//time interval: 165 200 250
+var dt = 550;//time interval: 165 200 250 <-------------------------------
 var t = dt;//timer
 
 //circles radius mult
-var rMult = 500;//70,100,400,50
+var rMult = 500;//70,100,400,50 <-------------------------------
 
 //popup window
 // window.onload = function() {
@@ -331,8 +331,8 @@ function create() {
 	.data(branches)
 	.enter()
 	.append('circle')
-	.attr('cx',x2)
-	.attr('cy',y2)
+	.attr('cx',x2)//<-------------------------------
+	.attr('cy',y2)//<-------------------------------
 	.attr("r", function(d) {
 		var value = Math.random()*rMult;
 		return Math.sqrt(value);
@@ -370,8 +370,8 @@ function create() {
 		.selectAll('circle')
 		.data(branches)
 		.transition()
-		.attr('cx',x2)
-		.attr('cy',y2)
+		.attr('cx',x2)//<-------------------------------
+		.attr('cy',y2)//<-------------------------------
 		.attr("r", function(d) {
 			var value = Math.random()*rMult;
 			return Math.sqrt(value);
@@ -396,9 +396,9 @@ function create() {
 		.selectAll('circle')
 		.data(branches)
 		.transition()
-		.duration(dt)
-		.attr('cx',x2)
-		.attr('cy',y2)
+		.duration(dt)//<-------------------------------
+		.attr('cx',x2)//<-------------------------------
+		.attr('cy',y2)//<-------------------------------
 		.attr("r", function(d) {
 			var value = Math.random()*rMult;
 			return Math.sqrt(value);
