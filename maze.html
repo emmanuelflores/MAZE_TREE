@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/svg.css">
   <link rel="stylesheet" type="text/css" href="css/ui_styles.css" />
   <link rel="stylesheet" type="text/css" href="css/info.css" />
-  <link rel="stylesheet" href="css/button.css" /> 
+  <link rel="stylesheet" href="css/button-maze.css" /> 
   <!--background -->
   <link type="text/css" rel="stylesheet" media="all" href="css/fancymenu.css" />
 
@@ -91,12 +91,12 @@ body{
     <button class="regenerate" style="
     margin: 2.4em 3px;
     display: block;
-    width: 45px;
+    width: 65px;
     float: left;
     background: #000;
     text-align: center;
     padding: 10px;
-    border-radius: 7px;
+    border-radius: 3px;
     background: #ddd;
     background: -moz-linear-gradient(##000, #00000f);
     background: -webkit-linear-gradient(#000, #00000f);
@@ -109,12 +109,12 @@ body{
     <button class="regenerate" style="
     margin: 2.4em 0px;
     display: block;
-    width: 45px;
+    width: 65px;
     float: left;
     background: #fff;
     text-align: center;
     padding: 10px;
-    border-radius: 7px;
+    border-radius: 3px;
     background: #ddd;
     background: -moz-linear-gradient(#000, #00000f);
     background: -webkit-linear-gradient(#000, #00000f);
@@ -123,6 +123,26 @@ body{
     border: 1px solid rgba(0,0,0,0.6);
     box-shadow: 0 0px 0px rgba(0,0,0,0.);">
     <p class="OpenSansBold" style="font-size:10px; color:white">Stop</p></button>
+
+    <button class="regenerate" style="
+    margin: 2.4em 3px;
+    display: block;
+    width: 65px;
+    float: left;
+    background: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 3px;
+    background: #ddd;
+    background: -moz-linear-gradient(#000, #00000f);
+    background: -webkit-linear-gradient(#000, #00000f);
+    background: -o-linear-gradient(#000, #00000f);
+    text-shadow: 0 0px 0 #fff;
+    border: 1px solid rgba(0,0,0,0.6);
+    box-shadow: 0 0px 0px rgba(0,0,0,0.);">
+    <p class="OpenSansBold" style="font-size:10px; color:white">Upload</p></button>
+
+
   </div>
 
 
@@ -143,6 +163,6 @@ body{
      </svg>
    </div>
    <canvas id="myCanvas" width = "800" height = "500"></canvas><!--1024 800-->
-   <script src="js/style-test2.js"></script>
+   <script src="js/maze.js"></script>
  </body>
  </html>
