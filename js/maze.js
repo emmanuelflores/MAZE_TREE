@@ -153,7 +153,7 @@ var dt = 350;//time interval: 165 200 250
 var t = dt;//timer
 
 //circles radius mult
-var rMult = 50;//70,100,400,50
+var rMult = 70;//70,100,400,50
 
 //popup window
 // window.onload = function() {
