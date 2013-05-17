@@ -1,9 +1,11 @@
 /* SVG styling */
+
 svg {
-	width: 1024px;
-	height: 800px;
+	width: 800; /*1024px*/
+	height: 500;/*800*/
 	font-family: helvetica, sans-serif;
 }
+
 
 path, line {
 	stroke: #777;

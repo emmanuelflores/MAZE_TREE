@@ -406,11 +406,11 @@ function create() {
  		// .on("mouseout", unhighlightCircles);
 
 
- var svg = d3.select("body").append("svg:svg")
- .attr("width", w)
- .attr("height", h)
- .style("pointer-events", "all")
- .on("mousemove", particle);
+ // var svg = d3.select("body").append("svg:svg")
+ // .attr("width", w)
+ // .attr("height", h)
+ // .style("pointer-events", "all")
+ // .on("mousemove", particle);
 
 
 }

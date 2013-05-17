@@ -27,6 +27,31 @@ var w = canvas.width;
 var h = canvas.height;
 var z = d3.scale.category20c();
 var i = 0;
+//padding
+//<---------------------
+var paddingValue = 20;
+// var margin = {top: 20, right: 20, bottom: 20, left: 20},
+//     padding = {top: 60, right: 60, bottom: 60, left: 60},
+//     outerWidth = canvas.width,
+//     outerHeight = canvas.height,
+//     innerWidth = outerWidth - margin.left - margin.right,
+//     innerHeight = outerHeight - margin.top - margin.bottom,
+//     w = innerWidth - padding.left - padding.right,
+//     h = innerHeight - padding.top - padding.bottom;
+
+var x = d3.scale.identity()
+    .domain([0, w]);
+ 
+var y = d3.scale.identity()
+    .domain([0, h]);
+ 
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+ 
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("right");
 
 
 if(w>=1200){
@@ -309,6 +334,36 @@ function unhighlightCircles(d){
 
 //INIT
 function create() {
+	//frame
+	// d3.select('svg')
+	// .append("line")
+	// .attr('x1',0)
+	// .attr('y1',0)
+	// .attr('x2',canvas.width)
+	// .attr('y2',0)
+
+	// d3.select('svg')
+	// .append("line")
+	// .attr('x1',0)
+	// .attr('y1',0)
+	// .attr('x2',0)
+	// .attr('y2',canvas.height)
+
+	// d3.select('svg')
+	// .append("line")
+	// .attr('x1',0)
+	// .attr('y1',canvas.height)
+	// .attr('x2',canvas.width)
+	// .attr('y2',canvas.height)
+
+	// d3.select('svg')
+	// .append("line")
+	// .attr('x1',canvas.width)
+	// .attr('y1',canvas.height)
+	// .attr('x2',canvas.width)
+	// .attr('y2',0)
+
+
 	d3.select('svg')
 	.selectAll('line')
 	.data(branches)
@@ -345,12 +400,12 @@ function create() {
 	.on("mouseout", unhighlightCircles);
 
 
-	//radial
-	var svg = d3.select("body").append("svg:svg")
-	.attr("width", w)
-	.attr("height", h)
-	.style("pointer-events", "all")
-	.on("mousemove", particle);
+	// //radial
+	// var svg = d3.select("body").append("svg:svg")
+	// .attr("width", w)
+	// .attr("height", h)
+	// .style("pointer-events", "all")
+	// .on("mousemove", particle);
 
 }
 
@@ -364,7 +419,7 @@ function create() {
 		.attr('x1', x1)
 		.attr('y1', y1)
 		.attr('x2', x2)
-		.attr('y2', y2);
+		.attr('y2', y2)
 
 		d3.select('svg')
 		.selectAll('circle')
@@ -381,16 +436,44 @@ function create() {
 		.style('stroke-width',2)
 		.style('fill-opacity',0.25)
 
-		var svg = d3.select("body").append("svg:svg")
-		.attr("width", w)
-		.attr("height", h)
-		.style("pointer-events", "all")
-		.on("mousemove", particle);
+		// var svg = d3.select("body").append("svg:svg")
+		// .attr("width", w)
+		// .attr("height", h)
+		// .style("pointer-events", "all")
+		// .on("mousemove", particle);
 
 
 	}
 
 	var timer = setInterval(function(){
+	// d3.select('svg')
+	// .append("line")
+	// .attr('x1',0)
+	// .attr('y1',0)
+	// .attr('x2',canvas.width)
+	// .attr('y2',0)
+
+	// d3.select('svg')
+	// .append("line")
+	// .attr('x1',0)
+	// .attr('y1',0)
+	// .attr('x2',0)
+	// .attr('y2',canvas.height)
+
+	// d3.select('svg')
+	// .append("line")
+	// .attr('x1',0)
+	// .attr('y1',canvas.height)
+	// .attr('x2',canvas.width)
+	// .attr('y2',canvas.height)
+
+	// d3.select('svg')
+	// .append("line")
+	// .attr('x1',canvas.width)
+	// .attr('y1',canvas.height)
+	// .attr('x2',canvas.width)
+	// .attr('y2',0)
+
 		t += dt;  
 		d3.select('svg')
 		.selectAll('circle')
@@ -411,7 +494,7 @@ function create() {
 	}, dt);
 
 	function particle() {
-		var m = d3.svg.mouse(this);
+		//var m = d3.svg.mouse(this);
 
 		svg.append("svg:ellipse")
 		.attr("cx", m[0])
