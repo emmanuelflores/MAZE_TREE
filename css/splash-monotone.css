@@ -25,7 +25,7 @@ h1.main,p.demos {
 }
 .sp-content:after {
 	content: '';/*<-----NOTICE HERE*/
-	width: 0px; /*2px*/
+	width: 2px;
 	background: #000;/*line*/
 	height: 100%;
 	position: absolute;
@@ -44,12 +44,12 @@ h1.main,p.demos {
 	line-height: 80px;
 	float: left;
 	position: relative;
-	background: #fff;/*ffdddd*/
+	background: #ffdddd;
 	overflow: hidden;
 }
 .sp-wrap span {
 	display: block;
-	background: #fff;/*background words  ffdddd*/
+	background: #ffdddd;/*background words*/
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	filter: alpha(opacity=0);
 	opacity: 0;
@@ -66,42 +66,42 @@ h1.main,p.demos {
 .sp-wrap span.sp-mid {
 	font-family: 'Arial';
 	text-transform: uppercase;
-	font-size: 20px;
-	line-height: 23px;
+	font-size: 16px;
+	line-height: 13px;
 	position: relative;
 }
 .sp-left span.sp-top {
-	-webkit-animation: slideLeft 0.5s ease-in 0.6s backwards, fadeOut 1s linear 3s backwards;
-	-moz-animation: slideLeft 0.5s ease-in 0.6s backwards, fadeOut 1s linear 3s backwards;
-	-ms-animation: slideLeft 0.5s ease-in 0.6s backwards, fadeOut 1s linear 3s backwards;
-	animation: slideLeft 0.5s ease-in 0.6s backwards, fadeOut 1s linear 2s backwards;
+	-webkit-animation: slideLeft 0.5s ease-in 0.6s backwards, fadeOut 1s linear 4s backwards;
+	-moz-animation: slideLeft 0.5s ease-in 0.6s backwards, fadeOut 1s linear 4s backwards;
+	-ms-animation: slideLeft 0.5s ease-in 0.6s backwards, fadeOut 1s linear 4s backwards;
+	animation: slideLeft 0.5s ease-in 0.6s backwards, fadeOut 1s linear 4s backwards;
 }
 .sp-left span.sp-mid {
-	-webkit-animation: slideLeft 0.5s ease-in 1s backwards, moveUp 0.6s linear 4s forwards;
-	-moz-animation: slideLeft 0.5s ease-in 1s backwards, moveUp 0.6s linear 4s forwards;
-	-ms-animation: slideLeft 0.5s ease-in 1s backwards, moveUp 0.6s linear 4s forwards;
-	animation: slideLeft 0.5s ease-in 1s backwards, moveUp 0.6s linear 4s forwards;
+	-webkit-animation: slideLeft 0.5s ease-in 1s backwards, moveUp 0.6s linear 5s forwards;
+	-moz-animation: slideLeft 0.5s ease-in 1s backwards, moveUp 0.6s linear 5s forwards;
+	-ms-animation: slideLeft 0.5s ease-in 1s backwards, moveUp 0.6s linear 5s forwards;
+	animation: slideLeft 0.5s ease-in 1s backwards, moveUp 0.6s linear 5s forwards;
 }
 .sp-left span.sp-bottom {
-	-webkit-animation: slideLeft 0.5s ease-in 1.4s backwards, fadeOut 1s linear 3.2s backwards;
-	-moz-animation: slideLeft 0.5s ease-in 1.4s backwards, fadeOut 1s linear 3.2s backwards;
-	-ms-animation: slideLeft 0.5s ease-in 1.4s backwards, fadeOut 1s linear 3.2s backwards;
-	animation: slideLeft 0.5s ease-in 1.4s backwards, fadeOut 1s linear 3.2s backwards;
+	-webkit-animation: slideLeft 0.5s ease-in 1.4s backwards, fadeOut 1s linear 4.2s backwards;
+	-moz-animation: slideLeft 0.5s ease-in 1.4s backwards, fadeOut 1s linear 4.2s backwards;
+	-ms-animation: slideLeft 0.5s ease-in 1.4s backwards, fadeOut 1s linear 4.2s backwards;
+	animation: slideLeft 0.5s ease-in 1.4s backwards, fadeOut 1s linear 4.2s backwards;
 }
 .sp-right span {
 	text-align: left;
 }
 .sp-right span.sp-top {
-	-webkit-animation: slideRight 0.5s ease-in 2s backwards, fadeOut 1s linear 3.4s backwards;
-	-moz-animation: slideRight 0.5s ease-in 2s backwards, fadeOut 1s linear 3.4s backwards;
-	-ms-animation: slideRight 0.5s ease-in 2s backwards, fadeOut 1s linear 3.4s backwards;
-	animation: slideRight 0.5s ease-in 2s backwards, fadeOut 1s linear 3.4s backwards;
+	-webkit-animation: slideRight 0.5s ease-in 2s backwards, fadeOut 1s linear 4.4s backwards;
+	-moz-animation: slideRight 0.5s ease-in 2s backwards, fadeOut 1s linear 4.4s backwards;
+	-ms-animation: slideRight 0.5s ease-in 2s backwards, fadeOut 1s linear 4.4s backwards;
+	animation: slideRight 0.5s ease-in 2s backwards, fadeOut 1s linear 4.4s backwards;
 }
 .sp-right span.sp-mid {
-	-webkit-animation: slideRight 0.5s ease-in 2.4s backwards, moveUp 0.6s linear 4s forwards;
-	-moz-animation: slideRight 0.5s ease-in 2.4s backwards, moveUp 0.6s linear 4s forwards;
-	-ms-animation: slideRight 0.5s ease-in 2.4s backwards, moveUp 0.6s linear 4s forwards;
-	animation: slideRight 0.5s ease-in 2.4s backwards, moveUp 0.6s linear 4s forwards;
+	-webkit-animation: slideRight 0.5s ease-in 2.4s backwards, moveUp 0.6s linear 5s forwards;
+	-moz-animation: slideRight 0.5s ease-in 2.4s backwards, moveUp 0.6s linear 5s forwards;
+	-ms-animation: slideRight 0.5s ease-in 2.4s backwards, moveUp 0.6s linear 5s forwards;
+	animation: slideRight 0.5s ease-in 2.4s backwards, moveUp 0.6s linear 5s forwards;
 }
 .sp-right span.sp-bottom {
 	-webkit-animation: slideRight 0.5s ease-in 3.2s backwards, fadeOut 1s linear 4.6s backwards;
@@ -111,7 +111,7 @@ h1.main,p.demos {
 }
 .sp-wrap i {
 	position: absolute;
-	background: #fff;/*ffdd00*/
+	background: #ffdd00;
 	width: 60px;
 }
 .sp-wrap i:first-child {
@@ -121,10 +121,10 @@ h1.main,p.demos {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	filter: alpha(opacity=0);
 	opacity: 0;
-	-webkit-animation: fadeOut 1s linear 3s backwards;
-	-moz-animation: fadeOut 1s linear 3s backwards;
-	-ms-animation: fadeOut 1s linear 3s backwards;
-	animation: fadeOut 1s linear 3s backwards;
+	-webkit-animation: fadeOut 1s linear 6s backwards;
+	-moz-animation: fadeOut 1s linear 6s backwards;
+	-ms-animation: fadeOut 1s linear 6s backwards;
+	animation: fadeOut 1s linear 6s backwards;
 }
 .sp-full {
 	position: absolute;/*relative*/
@@ -132,10 +132,10 @@ h1.main,p.demos {
 	top: 70px;/*position of the last text 142*/
 	width: 400px; /*700*/
 	left: 45px;/*145*/
-	-webkit-animation: fadeIn 1s linear 4.6s backwards;
-	-moz-animation: fadeIn 1s linear 4.6s backwards;
-	-ms-animation: fadeIn 1s linear 4.6s backwards;
-	animation: fadeIn 1s linear 4.6s backwards;
+	-webkit-animation: fadeIn 1s linear 6.6s backwards;
+	-moz-animation: fadeIn 1s linear 6.6s backwards;
+	-ms-animation: fadeIn 1s linear 6.6s backwards;
+	animation: fadeIn 1s linear 6.6s backwards;
 }
 .sp-full a {
 	background: #000;
@@ -147,10 +147,10 @@ h1.main,p.demos {
 	display: box; /*inline-block*/
 	font-size: 40px;
 	margin-top: 40px;
-	-webkit-animation: zoomIn 0.7s ease-in-out 2s backwards;
-	-moz-animation: zoomIn 0.7s ease-in-out 2s backwards;
-	-ms-animation: zoomIn 0.7s ease-in-out 2s backwards;
-	animation: zoomIn 0.7s ease-in-out 2s backwards;
+	-webkit-animation: zoomIn 0.7s ease-in-out 7s backwards;
+	-moz-animation: zoomIn 0.7s ease-in-out 7s backwards;
+	-ms-animation: zoomIn 0.7s ease-in-out 7s backwards;
+	animation: zoomIn 0.7s ease-in-out 7s backwards;
 }
 .sp-full h2 {
 	width: 400px;
