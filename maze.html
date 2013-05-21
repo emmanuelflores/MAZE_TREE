@@ -26,14 +26,15 @@
   background: #222;
   }*/
 
-body{
-  background : #FFF;
+  body{
+    background : #FFF;
   }
 
   ellipse {
     fill: none;
     stroke-width: 1.5px;
   }
+
 
   </style>
 
@@ -76,7 +77,7 @@ body{
 
   <div style="display: inline-block;">
 
-    <a href="#inforButton" class="openModal" style="font-size:24px;text-align: center;
+    <a href="#inforButton" class="openModal" id="startWindow" style="font-size:24px;text-align: center;
     margin: 1em 1px;
     display: block;
     width: 140px;
@@ -100,10 +101,16 @@ body{
 
     <aside id="inforButton" class="modal">
       <div>
-        <p class="customFontBoldItalic" style="font-size:40px">Maze sound experience</p>
-        <p class="customFontLightItalic">Developed by Monotone for the Maze Ensemble</p>
-        <p class="customFontLight" style="font-size:15px">Instructions: </p>
-        <p class="customFontLight" style="font-size:15px">Take a path and follow the sound</p>
+        <p class="customFontBold" style="font-size:85px; line-height:1em">maze.trail</p>
+        <p class="customFontBold" style="font-size:31px;line-height:1em;">Developed by monotone for the Maze Ensemble</p>
+        <hr style="height:8px; visibility:hidden;"/>
+        <p class="customFontLight" style="font-size:25px">Instructions:</p>
+
+        <p style="font-size:15px"><font style="font-family: 'OpenSansBold'">1.record</font> <font style="font-family: 'OpenSansRegular'"> a small piece of sound with your smart phone or your recording device.</font></p>
+        <p style="font-size:15px"><font style="font-family: 'OpenSansBold'">2.download</font> <font style="font-family: 'OpenSansRegular'">the sound to your computer.</font></p>
+        <p style="font-size:15px"><font style="font-family: 'OpenSansBold'">3.press</font> <font style="font-family: 'OpenSansRegular'">the <font style="font-family: 'OpenSansItalic'">'upload' </font>button and load your sound from the pop-up menu.<font'upload' button</font></p>
+        <p style="font-size:15px"><font style="font-family: 'OpenSansBold'">4.play</font> <font style="font-family: 'OpenSansRegular'">by clicking the blinking circles.</font></p>
+        <p style="font-size:15px"><font style="font-family: 'OpenSansBold'">5.listen</font> <font style="font-family: 'OpenSansRegular'">to the soundscape created by your and other users' sounds.</font></p>
 
         <a href="#close" title="Close">Close</a>
       </div>
@@ -126,7 +133,7 @@ body{
     text-shadow: 0 0px 0 #fff;
     border: 1px solid rgba(0,0,0,0.6);
     box-shadow: 0 0px 0px rgba(0,0,0,0.);">
-    <p class="OpenSansBold" style="font-size:15px; color:white; text-align: center;">re-trail</p></button>
+    <p class="OpenSansBold" style="font-size:15px; color:white; text-align: center;">re.trail</p></button>
 
     <button class="regenerate" style="
     margin: 2.2em 1px;
@@ -170,23 +177,11 @@ body{
   </div>
 
 
-<!--   <div id="container"></div> -->
-  <!--second option as button-->
-<!--     <div id="info" style="height:260px">
-      <h3>The Maze</h3>
-      <p>Development by Monotone Studio</p>
-
-    </div>
-    <div id="infoBt">
-      <a href="#" onclick="showInfo()"><img src="images/info.png" /></a>
-    </div> -->
-
-
-    <div id="chart" >
-     <svg>
-     </svg>
-   </div>
-   <canvas id="myCanvas" width = "800" height = "500"></canvas><!--1024 800-->
-   <script src="js/maze.js"></script>
- </body>
- </html>
+  <div id="chart" >
+   <svg>
+   </svg>
+ </div>
+ <canvas id="myCanvas" width = "800" height = "500"></canvas><!--1024 800-->
+ <script src="js/maze.js"></script>
+</body>
+</html>

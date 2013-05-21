@@ -68,7 +68,7 @@ h1 {
 
 /* Content */
 .modal > div {
-    width: 500px;/*how big the modal is going to be*/
+    width: 650px;/*how big the modal is going to be original:500px*/
     background: #fff;
     position: relative;
     margin: 10% auto;

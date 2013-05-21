@@ -1,5 +1,7 @@
  $(document).ready(function() {
 
+ 	document.getElementById('startWindow').focus();
+
  	//canvas context
  	var canvas = document.getElementById( 'myCanvas' );
  	var ctx = canvas.getContext( '2d' );
