@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Maze Tree</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/svg.css">
+  <link rel="stylesheet" type="text/css" href="css/ui_styles.css" />
+  <link rel="stylesheet" type="text/css" href="css/info.css" />
+  <link rel="stylesheet" href="css/button-maze.css" /> 
+  <!--background -->
+  <link type="text/css" rel="stylesheet" media="all" href="css/fancymenu.css" />
+
+
+  <!--js libraries-->
+  <script src="js/libs/d3.v3.min.js"></script>
+  <script src="js/libs/jquery-1.9.1.min.js"></script>
+  <script src="js/modernizr.custom.01769.js"></script>
+  <link rel="stylesheet" href="css/error.css">
+  <script src="js/common.js"></script>
+
+  <style type="text/css">
+  /*nice*/
+/*body {
+  background: #222;
+  }*/
+
+  body{
+    background : #FFF;
+  }
+
+  ellipse {
+    fill: none;
+    stroke-width: 1.5px;
+  }
+
+
+  </style>
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37639745-1']);
+  _gaq.push(['_setDomainName', 'prcweb.co.uk']);
+  _gaq.push(['_trackPageview']);
+
+  //LOG: problem with the address http://www.google-analytics.com/ga.js 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+</head>
+
+
+<!-- <body class="button"> -->
+<body>
+<!--   <div id="unsupportedBrowser">
+    <div id="dismiss">
+      <span>x</span>
+    </div>
+    <div id="warningText">
+      Oh no! Your browser doesn't support CSS3 animations! Please download one of the following modern
+      browsers in order to see what you're missing! 
+
+      <ul>
+        <li><a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></li>
+        <li><a href="http://www.google.com/chrome">Chrome</a></li>
+        <li><a href="http://www.apple.com/safari/download/">Safari</a></li>
+        <li><a href="http://www.opera.com/">Opera</a></li>
+        <li><a href="http://ie.microsoft.com/testdrive/">IE 10</a></li>
+      </ul>
+    </div>
+  </div> -->
+
+
+  <div style="display: inline-block;">
+
+    <a href="#inforButton" class="openModal" id="startWindow" style="font-size:24px;text-align: center;
+    margin: 1em 1px;
+    display: block;
+    width: 140px;
+    height:45px;
+    float: right;
+    background: #000;
+    float: left;
+    padding-top: 4.25px;
+    vertical-align:baseline;
+    text-align: center;
+    padding: 4px 1px 1px 2px;
+    border-radius: 1px;
+    background: #ddd;
+    background: -moz-linear-gradient(##000, #00000f);
+    background: -webkit-linear-gradient(#000, #00000f);
+    background: -o-linear-gradient(#000, #00000f);/*#000, #00000f   #fff, #fff)*/
+    text-shadow: 0 0px 0 #fff;
+    border: 1px solid rgba(0,0,0,0.6);
+    box-shadow: 0 0px 0px rgba(0,0,0,0.);"><p class="OpenSansBold" style="font-size:24px; color:white; text-align: center;vertical-align:bottom;">MAZE</p>
+    <p class="OpenSansBold" style="font-size:24px; color:white; text-align: center;vertical-align:bottom;">/TRAIL</p></a>
+
+    <aside id="inforButton" class="modal">
+      <div>
+        <p class="customFontBold" style="font-size:85px; line-height:1em;color:black;">MAZE/TRAIL</p>
+        <p class="customFontBold" style="font-size:31px;line-height:1em;">A GAME BY MAZE</p>
+        <hr style="height:40px; visibility:hidden;"/>
+
+        <p style="font-size:18px"><font style="font-family: 'OpenSansBold';color:#383333;">1/</font><font style="font-family: 'OpenSansBold'; color: black">RECORD</font> <font style="font-family: 'OpenSansRegular';color:#383333">A SOUND WITH YOUR SMART PHONE OR RECORDING DEVICE</font></p>
+
+        <p style="font-size:18px"><font style="font-family: 'OpenSansBold';color:#383333;">2/</font><font style="font-family: 'OpenSansBold'; color: black">DOWNLOAD</font> <font style="font-family: 'OpenSansRegular';color:#383333;">THE SOUND TO YOUR COMPUTER</font></p>
+
+        <p style="font-size:18px"><font style="font-family: 'OpenSansBold';color:#383333;">3/</font><font style="font-family: 'OpenSansBold';color: black">PRESS</font> <font style="font-family: 'OpenSansRegular';color:#383333;">THE UPLOAD BUTTON AND LOAD YOUR SOUND FROM THE POP-UP MENU<font'upload' button</font></p>
+
+        <p style="font-size:18px"><font style="font-family: 'OpenSansBold';color:#383333;">4/</font><font style="font-family: 'OpenSansBold';color: black">PLAY</font> <font style="font-family: 'OpenSansRegular';color:#383333;">BY CLICKING THE CIRCLES</font></p>
+
+        <p style="font-size:18px"><font style="font-family: 'OpenSansBold';color:#383333;">5/</font><font style="font-family: 'OpenSansBold';color: black">LISTEN</font> <font style="font-family: 'OpenSansRegular';color:#383333;">TO THE SOUNDSCAPE CREATED BY YOU AND THE OTHER USERS</font></p>
+
+        <hr style="height:40px; visibility:hidden;"/>
+
+        <a href="#close" title="Close">Close</a>
+        <p class="OpenSansRegular" style="font-size:12px;line-height:1em;color:black">game concept by MAZE / Isabelle Vigier</p>
+        <hr style="height:4px; visibility:hidden;"/>
+        <p class="OpenSansRegular" style="font-size:12px;line-height:1em;color:black">developed by monotone</p>
+        <hr style="height:10px; visibility:hidden;"/>
+      </div>
+    </aside>
+
+    <button class="regenerate" style="
+    margin: 2.2em 8px;
+    display: block;
+    width: 125px;
+    height:52px;
+    float: right;
+    background: #000;
+    text-align: center;
+    padding: 10px;
+    border-radius: 1px;
+    background: #ddd;
+    background: -moz-linear-gradient(##000, #00000f);
+    background: -webkit-linear-gradient(#000, #00000f);
+    background: -o-linear-gradient(#000, #00000f);/*#000, #00000f   #fff, #fff)*/
+    text-shadow: 0 0px 0 #fff;
+    border: 1px solid rgba(0,0,0,0.6);
+    box-shadow: 0 0px 0px rgba(0,0,0,0.);">
+    <p class="OpenSansBold" style="font-size:15px; color:white; text-align: center;">NEXT TRAIL</p></button>
+
+    <button class="regenerate" style="
+    margin: 2.2em 1px;
+    display: block;
+    width: 75px;
+    height:52px;
+    float: right;
+    background: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 1px;
+    background: #ddd;
+    background: -moz-linear-gradient(#000, #00000f);
+    background: -webkit-linear-gradient(#000, #00000f);
+    background: -o-linear-gradient(#000, #00000f);
+    text-shadow: 0 0px 0 #fff;
+    border: 1px solid rgba(0,0,0,0.6);
+    box-shadow: 0 0px 0px rgba(0,0,0,0.);">
+    <p class="OpenSansBold" style="font-size:15px; color:white; text-align: center;">MUTE</p></button>
+
+    <button class="regenerate" style="
+    margin: 2.2em 8px;
+    display: block;
+    width: 85px;
+    height:52px;
+    float: right;
+    background: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 1px;
+    background: #ddd;
+    background: -moz-linear-gradient(#000, #00000f);
+    background: -webkit-linear-gradient(#000, #00000f);
+    background: -o-linear-gradient(#000, #00000f);
+    text-shadow: 0 0px 0 #fff;
+    border: 1px solid rgba(0,0,0,0.6);
+    box-shadow: 0 0px 0px rgba(0,0,0,0.);">
+    <p class="OpenSansBold" style="font-size:15px; color:white; text-align: center;">UPLOAD</p></button>
+
+
+  </div>
+
+
+  <div id="chart" >
+   <svg>
+   </svg>
+ </div>
+ <canvas id="myCanvas" width = "800" height = "500"></canvas><!--1024 800-->
+ <script src="js/maze.js"></script>
+</body>
+</html>

@@ -62,7 +62,7 @@ h1 {
 
 /* Show modal */
 .modal:target {
-    opacity: 1;
+    opacity: 0.86;/*1*/
     pointer-events: auto;
 }
 
@@ -79,12 +79,12 @@ h1 {
 
     /* Prettify */
     padding: 30px;
-    border-radius: 7px;
+    border-radius: 1px;/*7px*/
     box-shadow: 0 3px 20px rgba(0,0,0,0.9);
     background: #000;
-    background: -moz-linear-gradient(#fff, #ccc);
-    background: -webkit-linear-gradient(#fff, #ccc);
-    background: -o-linear-gradient(#fff, #ccc);
+    background: -moz-linear-gradient(#fff, #00bbac);/*#fff, #ccc*/
+    background: -webkit-linear-gradient(#fff, #00bbac);
+    background: -o-linear-gradient(#fff, #00bbac);
     text-shadow: 0 0px 0 #fff;
 }
 
