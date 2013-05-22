@@ -14,7 +14,7 @@
 
 #link-roll {
     text-decoration: none;
-    color: #1D8090;
+    color: #383333;
 }
 
 .roll:hover span {
@@ -33,7 +33,7 @@
     display: inline-block;
     overflow: hidden;
 
-    vertical-align: top;
+    vertical-align: center;
 
     -webkit-perspective: 400px;
        -moz-perspective: 400px;
@@ -44,7 +44,7 @@
 .roll span {
     display: block;
     position: relative;
-    padding: 0 2px;
+    padding: 0 0px;
 
     -webkit-transition: all 400ms ease;
        -moz-transition: all 400ms ease;
@@ -68,7 +68,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    padding: 0 2px;
+    padding: 0 0px;/*0 2px*/
 
     -webkit-transform-origin: 50% 0%;
        -moz-transform-origin: 50% 0%;
