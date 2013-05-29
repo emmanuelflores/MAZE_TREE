@@ -1,5 +1,17 @@
  $(document).ready(function() {
 
+ 	var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+ 	var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+ 	var isFirefox = /Firefox/.test(navigator.userAgent);
+ 	var isOpera = /Opera/.test(navigator.userAgent);
+ 	var isIE = /InternetExplorer/.test(navigator.userAgent);
+
+ 	// if (isChrome) alert("You are using Chrome!");
+ 	// if (isSafari) alert("You are using Safari!");
+ 	if (isFirefox) alert("Game not supported by Firefox. Please use Chrome or Safari 6.");
+ 	if (isOpera) alert("Game not supported by Opera. Please use Chrome or Safari 6.");
+ 	if (isIE) alert("Game not supported by Internet Explorer. Please use Chrome or Safari 6.");
+
  	document.getElementById('startWindow').focus();
 
  	//canvas context
@@ -42,18 +54,18 @@ var paddingValue = 20;
 //     h = innerHeight - padding.top - padding.bottom;
 
 var x = d3.scale.identity()
-    .domain([0, w]);
- 
+.domain([0, w]);
+
 var y = d3.scale.identity()
-    .domain([0, h]);
- 
+.domain([0, h]);
+
 var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
- 
+.scale(x)
+.orient("bottom");
+
 var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("right");
+.scale(y)
+.orient("right");
 
 
 if(w>=1200){
@@ -476,11 +488,11 @@ function create() {
 	// .attr('x2',canvas.width)
 	// .attr('y2',0)
 
-		t += dt;  
-		d3.select('svg')
-		.selectAll('circle')
-		.data(branches)
-		.transition()
+	t += dt;  
+	d3.select('svg')
+	.selectAll('circle')
+	.data(branches)
+	.transition()
 		.duration(dt)//<-------------------------------
 		.attr('cx',x2)//<-------------------------------
 		.attr('cy',y2)//<-------------------------------
@@ -495,7 +507,7 @@ function create() {
 
 	}, dt);
 
-	function particle() {
+ function particle() {
 		//var m = d3.svg.mouse(this);
 
 		svg.append("svg:ellipse")
